@@ -13,9 +13,9 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @Sql(value = "/load-db.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
 @Sql(value = "/clean-db.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
-@ExtendWith(SpringExtension.class)
 @DataJpaTest
 @TestPropertySource("classpath:application-test.properties")
+@ExtendWith(SpringExtension.class)
 public class ClienteRepositoryTest {
 
     @Autowired
