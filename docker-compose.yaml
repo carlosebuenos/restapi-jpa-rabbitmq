@@ -1,0 +1,15 @@
+version: '3'
+services:
+  restapi-jpa-rabbitmq:
+    build:
+      context: ./
+      dockerfile: docker/Dockerfile
+    image: restapi-jpa-rabbitmq
+    ports:
+      - "8080:8080"
+      - "5005:5005"
+    environment:
+      - PROFILE=dev
+      - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
+    volumes:
+      - ./data:/opt/restapi-jpa-rabbitmq/data
